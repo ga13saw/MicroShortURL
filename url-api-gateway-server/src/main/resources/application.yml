@@ -1,0 +1,49 @@
+server:
+  port: 9000
+  
+  
+spring:
+  cloud:
+    gateway:
+      routes:
+        #Route Mapping
+      - id: TINYURL-SERVICE	               #RouteIdentifier
+        uri: lb://TINYURL-SERVICE	         #Respective microservice URL which needs to be mapped
+         #Request Context Path Mapping
+        predicates:
+        - Path=/api/v1/url/**      
+       
+            
+         #Route Mapping 
+      - id: LONGURL-SERVICE
+        uri: lb://LONGURL-SERVICE 
+        predicates:
+        - Path=/api/v1/urls/**
+#        filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: LONGURL-SERVICE
+#                fallbackuri: forward:/longUrlServiceFallBack
+  application:
+    name: url-api-gateway
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+            
+   
+#hystrix:
+#  command:
+#    fallbackcmd:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 4000
+
+
+           
