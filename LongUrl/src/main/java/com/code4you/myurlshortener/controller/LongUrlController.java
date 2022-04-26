@@ -41,7 +41,7 @@ public class LongUrlController {
 		return repository.findAll();
 	}
 	
-	@GetMapping("/url/{shortLink}")
+	@GetMapping("/urls/{shortLink}")
 	@ResponseStatus(HttpStatus.OK)
 	public Url findUrl(@PathVariable String shortLink){
 		return service.getEncodedUrl(shortLink);
