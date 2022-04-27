@@ -11,6 +11,8 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 
+import com.code4you.myurlshortener.constants.Constants;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +21,7 @@ import java.util.Map;
 @Configuration
 public class KafkaConsumerConfig {
 	
-	@Value("localhost:9092")
+	@Value(Constants.KAFKA_RUNNING_INSTANCE)
 	private String bootstrapServer;
 	
 	@Bean

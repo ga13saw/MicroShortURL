@@ -53,8 +53,8 @@ public class LongUrlController {
         if(StringUtils.isEmpty(shortLink))
         {
             UrlErrorResponseDto urlErrorResponseDto = new UrlErrorResponseDto();
-            urlErrorResponseDto.setError(Constants.invalid_url);
-            urlErrorResponseDto.setStatus(Constants.status_400);
+            urlErrorResponseDto.setError(Constants.INVALID_URL);
+            urlErrorResponseDto.setStatus(Constants.STATUS_400);
             return new ResponseEntity<UrlErrorResponseDto>(urlErrorResponseDto,HttpStatus.OK);
         }
         Url urlToRet = service.getEncodedUrl(shortLink);
@@ -63,8 +63,8 @@ public class LongUrlController {
         if(urlToRet == null)
         {
             UrlErrorResponseDto urlErrorResponseDto = new UrlErrorResponseDto();
-            urlErrorResponseDto.setError(Constants.expired_url);
-            urlErrorResponseDto.setStatus(Constants.status_400);
+            urlErrorResponseDto.setError(Constants.EXPIRED_URL);
+            urlErrorResponseDto.setStatus(Constants.STATUS_400);
             return new ResponseEntity<UrlErrorResponseDto>(urlErrorResponseDto,HttpStatus.OK);
         }
 
@@ -72,8 +72,8 @@ public class LongUrlController {
         {
             service.deleteShortLink(urlToRet);
             UrlErrorResponseDto urlErrorResponseDto = new UrlErrorResponseDto();
-            urlErrorResponseDto.setError(Constants.url_expired_create_new);
-            urlErrorResponseDto.setStatus(Constants.status_200);
+            urlErrorResponseDto.setError(Constants.URL_EXPIRED_CREATE_NEW);
+            urlErrorResponseDto.setStatus(Constants.STATUS_200);
             return new ResponseEntity<UrlErrorResponseDto>(urlErrorResponseDto,HttpStatus.OK);
         }
 

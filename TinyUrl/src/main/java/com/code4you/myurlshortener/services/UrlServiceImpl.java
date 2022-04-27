@@ -1,10 +1,11 @@
 package com.code4you.myurlshortener.services;
 
-import org.springframework.stereotype.Component;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
+
 import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.code4you.myurlshortener.model.Url;
 import com.code4you.myurlshortener.model.UrlDto;
@@ -13,15 +14,11 @@ import com.google.common.hash.Hashing;
 
 import lombok.RequiredArgsConstructor;
 
-import java.nio.charset.StandardCharsets;
-
-import java.time.LocalDateTime;
-
 @Component
 @RequiredArgsConstructor
 public class UrlServiceImpl implements UrlService {
 
-	private static final Logger logger = LoggerFactory.getLogger(UrlServiceImpl.class);
+	//private static final Logger logger = LoggerFactory.getLogger(UrlServiceImpl.class);
 	
 	@Autowired
 	private UrlRepository urlRepository;

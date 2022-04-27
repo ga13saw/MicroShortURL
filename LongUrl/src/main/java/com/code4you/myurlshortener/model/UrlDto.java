@@ -20,6 +20,11 @@ public class UrlDto {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
+	
+	public void setExpirationDate(String expirationDate) {
+		this.expirationDate = expirationDate;
+	}
 
 	public String getExpirationDate() {
 		// TODO Auto-generated method stub
@@ -28,8 +33,10 @@ public class UrlDto {
 
 	@Override
 	public String toString() {
-		return "UrlDto [url=" + url + "]";
+		return "UrlDto [url=" + url + ", expirationDate=" + expirationDate + "]";
 	}
+
+	
 	
 	
 	
